@@ -8,7 +8,7 @@ services:
       - PGID=${ENV_PGID}
       - TZ=${ENV_TZ}
     volumes:
-      - ${COFIG_DIR}/jellyfin:/config
+      - ${CONFIG_DIR}/jellyfin:/config
       - ${DATA_DIR}/media:/media
     restart: unless-stopped
     network_mode: host
@@ -22,7 +22,7 @@ services:
       - PGID=${ENV_PGID}
       - TZ=${ENV_TZ}
     volumes:
-      - ${COFIG_DIR}/sonarr:/config
+      - ${CONFIG_DIR}/sonarr:/config
       - ${DATA_DIR}/media:/media
       - ${DATA_DIR}/downloads:/downloads
     ports:
@@ -40,7 +40,7 @@ services:
       - PGID=${ENV_PGID}
       - TZ=${ENV_TZ}
     volumes:
-      - ${COFIG_DIR}/radarr:/config
+      - ${CONFIG_DIR}/radarr:/config
       - ${DATA_DIR}/media:/media
       - ${DATA_DIR}/downloads:/downloads
     ports:
@@ -59,7 +59,7 @@ services:
       - TZ=${ENV_TZ}
       - WEBUI_PORT=8080
     volumes:
-      - ${COFIG_DIR}/qbittorrent:/config
+      - ${CONFIG_DIR}/qbittorrent:/config
       - ${DATA_DIR}/downloads:/downloads
     ports:
       - 8080:8080
@@ -78,7 +78,7 @@ services:
       - PGID=${ENV_PGID}
       - TZ=${ENV_TZ}
     volumes:
-      - ${COFIG_DIR}/prowlarr:/config
+      - ${CONFIG_DIR}/prowlarr:/config
     ports:
       - 9696:9696
     restart: unless-stopped
