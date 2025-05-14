@@ -10,8 +10,11 @@ services:
     volumes:
       - ${CONFIG_DIR}/jellyfin:/config
       - ${DATA_DIR}/media:/media
+    ports:
+      - 8096:8096
     restart: unless-stopped
-    network_mode: host
+    networks:
+      - media-network
 
   # TV Show Management
   sonarr:
