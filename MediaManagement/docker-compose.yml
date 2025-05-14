@@ -26,7 +26,7 @@ services:
       - TZ=${ENV_TZ}
     volumes:
       - ${CONFIG_DIR}/sonarr:/config
-      - ${DATA_DIR}/media:/media
+      - ${DATA_DIR}/media/Shows:/shows
       - ${DATA_DIR}/downloads:/downloads
     ports:
       - 8989:8989
@@ -44,7 +44,7 @@ services:
       - TZ=${ENV_TZ}
     volumes:
       - ${CONFIG_DIR}/radarr:/config
-      - ${DATA_DIR}/media:/media
+      - ${DATA_DIR}/media/Movies:/movies
       - ${DATA_DIR}/downloads:/downloads
     ports:
       - 7878:7878
