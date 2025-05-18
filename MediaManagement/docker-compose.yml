@@ -88,6 +88,22 @@ services:
     networks:
       - media-network
 
+  jellyseerr:
+    image: fallenbagel/jellyseerr:latest
+    container_name: jellyseerr
+    environment:
+      - LOG_LEVEL=debug
+      - PUID=${ENV_PUID}
+      - PGID=${ENV_PGID}
+      - TZ=${ENV_TZ}
+    volumes:
+      -${CONFIG_DIR}/jellyseerr:/app/config
+    ports:
+      - 5055:5055
+    restart: unless-stopped
+    networks:
+      - media-network
+
 networks:
   media-network:
     driver: bridge
