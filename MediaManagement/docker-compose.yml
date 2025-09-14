@@ -103,6 +103,21 @@ services:
     restart: unless-stopped
     networks:
       - media-network
+    
+  bazarr:
+    image: lscr.io/linuxserver/bazarr:latest
+    container_name: bazarr
+    environment:
+      - PUID=${ENV_PUID}
+      - PGID=${ENV_PGID}
+      - TZ=${ENV_TZ}
+    volumes:
+      - ${CONFIG_DIR}/bazarr:/config
+      - ${DATA_DIR}/media/Movies:/movies
+      - ${DATA_DIR}/media/Shows:/shows
+    ports:
+      - 6767:6767
+    restart: unless-stopped
 
 networks:
   media-network:
