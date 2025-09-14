@@ -118,6 +118,8 @@ services:
     ports:
       - 6767:6767
     restart: unless-stopped
+    networks:
+      - media-network
 
 networks:
   media-network:
